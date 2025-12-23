@@ -24,7 +24,7 @@ st.markdown("""
 
 # 사이드바: API 설정
 st.sidebar.header("백엔드 설정")
-default_base = st.session_state.get("api_base_url", "http://127.0.0.1:8000")
+default_base = st.session_state.get("api_base_url", "https://geundol222-movie-review.hf.space")
 api_base_url = st.sidebar.text_input("API Base URL", value=default_base)
 st.session_state["api_base_url"] = api_base_url
 client = ApiClient(api_base_url)
