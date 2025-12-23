@@ -25,24 +25,24 @@ class ApiClient:
 
     # Movies
     def list_movies(self) -> Tuple[Optional[Any], Optional[str]]:
-        return self._request("get", "/movies")
+        return self._request("get", "/movies/")
 
     def create_movie(self, payload: Dict[str, Any]) -> Tuple[Optional[Any], Optional[str]]:
-        return self._request("post", "/movies", json=payload)
+        return self._request("post", "/movies/", json=payload)
 
     def delete_movie(self, movie_id: int) -> Tuple[Optional[Any], Optional[str]]:
-        return self._request("delete", f"/movies/{movie_id}")
+        return self._request("delete", f"/movies/{movie_id}/")
 
     # Reviews
     def list_reviews(self) -> Tuple[Optional[Any], Optional[str]]:
-        return self._request("get", "/reviews")
+        return self._request("get", "/reviews/")
 
     def list_reviews_by_movie(self, movie_id: int, limit: Optional[int] = None) -> Tuple[Optional[Any], Optional[str]]:
         params = {"limit": limit} if limit is not None else {}
-        return self._request("get", f"/reviews/movie/{movie_id}", params=params)
+        return self._request("get", f"/reviews/movie/{movie_id}/", params=params)
 
     def create_review(self, payload: Dict[str, Any]) -> Tuple[Optional[Any], Optional[str]]:
-        return self._request("post", "/reviews", json=payload)
+        return self._request("post", "/reviews/", json=payload)
 
     def average_rating(self, movie_id: int) -> Tuple[Optional[Any], Optional[str]]:
-        return self._request("get", f"/reviews/movie/{movie_id}/rating")
+        return self._request("get", f"/reviews/movie/{movie_id}/rating/")
