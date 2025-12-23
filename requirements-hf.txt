@@ -1,0 +1,7 @@
+fastapi==0.127.0
+uvicorn==0.40.0
+SQLAlchemy==2.0.45
+transformers==4.55.4
+onnxruntime==1.23.2
+optimum[onnxruntime]==2.0.0
+numpy==2.4.0
