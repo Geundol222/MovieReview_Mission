@@ -1,27 +1,26 @@
-# Movies & Reviews
+---
+title: Movie Review API
+emoji: 🎬
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: false
+---
 
-영화 리뷰 감성 분석 애플리케이션
+# Movie Review Sentiment Analysis API
 
-## 기능
-- 영화 등록 및 관리
-- 리뷰 작성 및 감성 분석 (NSMC 모델 사용)
-- 영화 검색
-- 평균 감성 점수 계산
+FastAPI backend for movie review sentiment analysis using BERT model.
 
-## 실행 방법
+## Features
+- Movie management API
+- Review creation with automatic sentiment analysis
+- Korean language support
+- ONNX optimized inference
 
-### 백엔드 실행
-```bash
-uvicorn backend.main:app --reload
-```
-
-### 프론트엔드 실행
-```bash
-streamlit run frontend/app.py
-```
-
-## 기술 스택
-- **Frontend**: Streamlit
-- **Backend**: FastAPI
-- **Database**: SQLite
-- **ML Model**: sangrimlee/bert-base-multilingual-cased-nsmc (ONNX)
+## Endpoints
+- `GET /health` - Health check
+- `GET /movies` - List all movies
+- `POST /movies` - Create a new movie
+- `GET /movies/{movie_id}/reviews` - Get reviews for a movie
+- `POST /reviews` - Create a review with sentiment analysis
