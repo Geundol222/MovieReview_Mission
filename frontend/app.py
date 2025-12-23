@@ -229,10 +229,12 @@ else:
                     created, err = client.create_movie(payload)
                     if err:
                         st.error(f"등록 실패: {err}")
-                    else:
-                        st.success(f"영화 등록 완료! (ID: {created.get('id')})")
+                    elif created:
+                        st.success(f"영화 등록 완료! (ID: {created.get('id', 'N/A')})")
                         st.balloons()
                         st.rerun()
+                    else:
+                        st.error("등록 실패: 응답이 없습니다.")
 
     # 탭 3: 리뷰 작성
     with tab_add_review:
@@ -265,11 +267,13 @@ else:
                         review, err = client.create_review(payload)
                         if err:
                             st.error(f"리뷰 등록 실패: {err}")
-                        else:
+                        elif review:
                             st.success(
                                 f"✅ 리뷰 등록 완료!\n\n"
-                                f"- 감성 점수: {review.get('sentiment_score'):.3f}\n"
-                                f"- 감성 레이블: {review.get('sentiment_label')}"
+                                f"- 감성 점수: {review.get('sentiment_score', 0):.3f}\n"
+                                f"- 감성 레이블: {review.get('sentiment_label', 'N/A')}"
                             )
                             st.balloons()
                             st.rerun()
+                        else:
+                            st.error("리뷰 등록 실패: 응답이 없습니다.")
