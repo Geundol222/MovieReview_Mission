@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: movie-review-api
+    env: python
+    buildCommand: "pip install -r backend/requirements.txt && python -c 'from backend.sentiment import download_model; download_model()'"
+    startCommand: "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
