@@ -133,6 +133,11 @@ def _ensure_model_files() -> None:
     _export_onnx()
 
 
+def download_model() -> None:
+    """Render build step helper: pre-download and export ONNX artifacts."""
+    warmup()
+
+
 def _export_onnx() -> None:
     try:
         from optimum.onnxruntime import ORTModelForSequenceClassification
