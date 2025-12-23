@@ -1,0 +1,8 @@
+streamlit
+requests
+fastapi
+uvicorn
+sqlalchemy
+transformers
+onnxruntime
+optimum[onnxruntime]
